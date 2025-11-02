@@ -1,73 +1,145 @@
-# React + TypeScript + Vite
+# Weather Analytics Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **responsive Weather Analytics Dashboard** built with **React, TypeScript, Vite, Redux Toolkit, Recharts**, and **Firebase Hosting**.  
+This app displays current weather, 7-day forecasts, and historical trends with interactive charts.
 
-Currently, two official plugins are available:
+Live Demo: [https://weather-dashboard-96a44.web.app](https://weather-dashboard-96a44.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🌡 **Current Weather:** Shows temperature, humidity, wind, pressure, UV index, and visibility.
+- 📊 **Hourly Temperature:** Interactive charts with temperature and "feels like" data.
+- 📅 **7-Day Forecast:** Temperature, precipitation, and wind charts.
+- 🕒 **Historical Data:** Last 3 days' temperature trends.
+- 🌐 **Responsive Design:** Works on desktop, tablet, and mobile devices.
+- ⚡ **Auto Updates:** Fetches weather data every minute.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technologies Used
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React + TypeScript** for a type-safe frontend.
+- **Vite** for fast development and build process.
+- **Redux Toolkit** for state management.
+- **Recharts** for interactive and responsive charts.
+- **Firebase Hosting** for deployment.
+- **Tailwind CSS** for styling.
+- **Framer Motion** for smooth animations.
+- **Firebase Authentication (Google OAuth)** for user login.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Screenshots
+
+### Dashboard
+![Dashboard Screenshot](./screenshots/dashboard.png)
+
+### City Detail Page
+![City Detail Screenshot](./screenshots/city-detail.png)
+
+### Hourly Temperature & Feels Like
+![Hourly Temp & Feels Like](./screenshots/hourly-temp-feel-like.png)
+
+### 7-Day Temperature & Precipitation Forecast
+![7-Day Temp & Precipitation](./screenshots/7-day-temp-and-percipitation.png)
+
+### Wind Forecast & Historical Temperature
+![Wind Forecast & Historical Temp](./screenshots/wind-forecast-and-historical-temp.png)
+
+
+## Getting Started
+
+### Install Dependencies
+
+```bash
+git clone https://github.com/sharmaHarshit2000/weather-app-dashboard.git
+cd weather-app
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the root of your project and add:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+VITE_WEATHER_API_KEY=
+VITE_WEATHER_API_BASE=
+
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
+
+---
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+Open http://localhost:5173 to view the app.
+
+---
+
+## Project Structure
+
+```
+weather-app/
+├── public/                 # Static assets
+├── src/
+│   ├── api/                # API calls (weatherApi)
+│   ├── app/                # Redux store
+│   ├── components/         # Reusable components
+│   ├── features/           # Redux slices
+│   ├── hooks/              # Custom hooks
+│   ├── pages/              # Page components (CityDetail, Home, etc.)
+│   ├── utils/              # Helper functions
+│   ├── App.tsx
+│   └── main.tsx
+├── dist/                   # Production build
+├── firebase.json           # Firebase configuration
+├── package.json
+└── README.md
+```
+
+---
+
+## Available Scripts
+
+- `npm run dev` – Run the app locally.
+- `npm run build` – Build the app for production.
+- `npm run preview` – Preview production build locally.
+
+---
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/your-feature`.
+3. Make changes and commit: `git commit -m "Add your feature"`.
+4. Push to your branch: `git push origin feature/your-feature`.
+5. Create a Pull Request.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Acknowledgements
+
+- [Vite](https://vitejs.dev/)
+- [React](https://reactjs.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Recharts](https://recharts.org/)
+- [Firebase](https://firebase.google.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
